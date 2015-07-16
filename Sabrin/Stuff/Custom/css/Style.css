@@ -1,0 +1,32 @@
+.nav-color
+{
+
+	background-color: darkkhaki !important  ;
+
+}
+
+.navbar-default {
+	background-color: chocolate;
+	border-color: burlywood;
+}
+
+.sm-margin{
+	margin: 4px;
+}
+.sm-input{
+	width: 30px !important;
+}
+.md-input{
+	width: 120px !important;
+}
+
+@media all and (max-width: 768px) {
+
+	.sm-input{
+		width: auto;
+	}
+	.md-input{
+		width: auto;
+	}
+
+}
