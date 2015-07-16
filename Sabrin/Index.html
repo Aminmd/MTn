@@ -161,6 +161,25 @@
 										</select>
 
 									</div>
+									<div class="form-group ">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" ng-model="in.net2G" > 2G
+											</label>
+										</div>
+
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" ng-model="in.net3G" > 3G
+											</label>
+										</div>
+
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" ng-model="in.net4G" > 4G
+											</label>
+										</div>
+									</div>
 
 									<div class="form-group sm-margin ">
 
@@ -191,7 +210,8 @@
 
 									<div class="form-group sm-margin">
 
-										<button type="buttonu" class="btn btn-primary" ng-click="Add()"> Add</button>
+										<button ng-if="isAdd == true" type="button" class="btn btn-primary" ng-click="Add()"> Add</button>
+										<button ng-if="isAdd == false" type="button" class="btn btn-primary" ng-click="Update(in.id)"> update</button>
 									</div>
 								</div>
 
@@ -223,6 +243,7 @@
 										<th>Comment</th>
 										<th>Priority</th>
 										<th>Region</th>
+										<th>SiteNode </th>
 										<th>Index</th>
 										<th>Pending</th>
 										<th>Comment</th>
@@ -231,19 +252,34 @@
 									</tr>
 								</thead>
 								<tbody>
+								
 									<tr ng-repeat="item in tabel">
-									<td>{{item.TT}}</td>
-									<td>{{item.BSC}}</td>
-									<td>{{item.Site}}</td>
-									<td>{{item.Start}}</td>
-									<td>{{item.FaultReason}}</td>
-									<td>{{item.Comment}}</td>
-									<td>{{item.Priority}}</td>
-									<td>{{item.Region}}</td>
-									<td>{{item.Index}}</td>
-									<td>{{item.Pending}}</td>
-									<td>{{item.Comment2}}</td>
-									<td>{{item.SLA}}</td>
+	
+										<td>{{item.TT}}</td>
+										<td>{{item.BSC}}</td>
+										<td>{{item.Site}}</td>
+										<td>{{item.Start}}</td>
+										<td>{{item.FaultReason}}</td>
+										<td>{{item.Comment}}</td>
+										<td>{{item.Priority}}</td>
+										<td>{{item.Region}}</td>
+										<td>
+											<span class="label label-default" ng-if="item.t2G">2G</span>
+											<span class="label label-default" ng-if="item.t3G">3G</span>
+											<span class="label label-default" ng-if="item.t4G">4G</span>
+										  </td>
+										<td>{{item.Index}}</td>
+										<td>{{item.Pending}}</td>
+										<td>{{item.Comment2}}</td>
+										<td>{{item.SLA}}</td>
+										<td>
+										<label ng-click="updateLoad(item.id )"> 
+										<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+										</label>
+										<label ng-click="Delete(item.id )"> 
+										<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+										</label>
+										 </td>
 									</tr>
 								</tbody>
 							</table>
